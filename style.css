@@ -1,0 +1,53 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+img {
+  width: 100%;
+}
+
+.quote-container {
+  width: 100%;
+  padding: 1em;
+}
+
+.quote-box {
+  margin: auto 0;
+  max-width: 600px;
+}
+
+.quote-box-top {
+  font-family: "Special Elite", cursive;
+}
+
+.quote-text {
+  text-align: center;
+  font-size: 1.6875rem;
+}
+
+.quote-author {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.quote-button {
+  font-family: "Lobster", cursive;
+  border: none;
+  background: none;
+}
+
+.quote-twitter {
+  width: 24px;
+  height: 24px;
+}
+
+.quote-button:hover,
+.quote-button:focus {
+  opacity: 0.75;
+}
