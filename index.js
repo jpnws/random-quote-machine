@@ -1,5 +1,9 @@
 function App() {
-  return <h1>Hello world!</h1>;
+  return (
+    <div>
+      <h1>Hello world!</h1>
+    </div>
+  );
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
