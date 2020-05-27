@@ -51,3 +51,8 @@ img {
 .quote-button:focus {
   opacity: 0.75;
 }
+
+.quote-box-bottom {
+  display: flex;
+  justify-content: space-between;
+}
