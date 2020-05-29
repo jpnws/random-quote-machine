@@ -31,7 +31,7 @@ class App extends React.Component {
             author: data.author,
           });
         });
-    }, 1000);
+    }, 500);
   }
 
   getNewQuote() {
@@ -39,17 +39,15 @@ class App extends React.Component {
       loading: true,
     });
 
-    setTimeout(() => {
-      fetch("https://programming-quotes-api.herokuapp.com/quotes/random")
-        .then((response) => response.json())
-        .then((data) => {
-          this.setState({
-            loading: false,
-            quote: data.en,
-            author: data.author,
-          });
+    fetch("https://programming-quotes-api.herokuapp.com/quotes/random")
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          loading: false,
+          quote: data.en,
+          author: data.author,
         });
-    }, 1000);
+      });
   }
 
   render() {
@@ -74,8 +72,12 @@ class App extends React.Component {
     } else {
       qbt = (
         <div className="quote-box-top">
-          <p className="quote-text">"{this.state.quote}"</p>
-          <p className="quote-author">{this.state.author}</p>
+          <p className="quote-text" id="text">
+            "{this.state.quote}"
+          </p>
+          <p className="quote-author" id="author">
+            {this.state.author}
+          </p>
         </div>
       );
 
@@ -88,7 +90,7 @@ class App extends React.Component {
 
     return (
       <div style={styles} className="quote-container">
-        <div className="quote-box">
+        <div className="quote-box" id="quote-box">
           {qbt}
           <div className="quote-box-bottom">
             <a
@@ -99,12 +101,16 @@ class App extends React.Component {
               href={twitterHref}
             >
               <img
-                src="icons8-twitter.svg"
+                src="https://raw.githubusercontent.com/jiparkdev/random-quote-machine/master/icons8-twitter.svg"
                 alt="Share via Twitter"
                 className="quote-twitter"
               />
             </a>
-            <button className="quote-button" onClick={this.getNewQuote}>
+            <button
+              className="quote-button"
+              id="new-quote"
+              onClick={this.getNewQuote}
+            >
               New Quote
             </button>
           </div>
