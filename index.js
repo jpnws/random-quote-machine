@@ -82,10 +82,8 @@ class App extends React.Component {
       );
 
       twitterHref =
-        "https://twitter.com/intent/tweet?hashtags=quotes&amp;related=freecodecamp&amp;text=" +
-        this.state.quote +
-        " - " +
-        this.state.author;
+        "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=" +
+        encodeURIComponent(this.state.quote + " - " + this.state.author);
     }
 
     return (
