@@ -14,32 +14,44 @@ img {
 
 .quote-container {
   width: 100%;
-  padding: 1em;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .quote-box {
-  margin: auto 0;
-  max-width: 600px;
+  width: 100%;
+  padding: 0.25em 1.25em 1.25em 1.25em;
+  background: #000000;
+  opacity: 0.9;
+  color: #ffffff;
 }
 
 .quote-box-top {
   font-family: "Special Elite", cursive;
 }
 
+.quote-loading {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
 .quote-text {
   text-align: center;
-  font-size: 1.6875rem;
+  font-size: 1.25rem;
 }
 
 .quote-author {
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .quote-button {
   font-family: "Lobster", cursive;
   border: none;
   background: none;
+  color: #ffffff;
 }
 
 .quote-twitter {
@@ -55,4 +67,21 @@ img {
 .quote-box-bottom {
   display: flex;
   justify-content: space-between;
+}
+
+@media (min-width: 700px) {
+  .quote-box {
+    max-width: 600px;
+    border-radius: 25px;
+  }
+
+  .quote-text {
+    text-align: center;
+    font-size: 1.6875rem;
+  }
+
+  .quote-author {
+    text-align: center;
+    font-size: 1.25rem;
+  }
 }

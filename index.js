@@ -1,25 +1,117 @@
-function App() {
-  return (
-    <div className="quote-container">
-      <div className="quote-box">
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+      quote: "",
+      author: "",
+      imgUrl: "",
+    };
+    this.getNewQuote = this.getNewQuote.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
+      loading: true,
+    });
+
+    fetch("https://picsum.photos/2840/2160?blur=1").then((resp) => {
+      this.setState({
+        imgUrl: resp.url,
+      });
+    });
+
+    setTimeout(() => {
+      fetch("https://programming-quotes-api.herokuapp.com/quotes/random")
+        .then((response) => response.json())
+        .then((data) => {
+          this.setState({
+            loading: false,
+            quote: data.en,
+            author: data.author,
+          });
+        });
+    }, 1000);
+  }
+
+  getNewQuote() {
+    this.setState({
+      loading: true,
+    });
+
+    setTimeout(() => {
+      fetch("https://programming-quotes-api.herokuapp.com/quotes/random")
+        .then((response) => response.json())
+        .then((data) => {
+          this.setState({
+            loading: false,
+            quote: data.en,
+            author: data.author,
+          });
+        });
+    }, 1000);
+  }
+
+  render() {
+    let styles;
+    if (this.state.imgUrl) {
+      styles = {
+        background: `url(${this.state.imgUrl}) no-repeat center center fixed`,
+        backgroundSize: "cover",
+      };
+      console.log(styles);
+    }
+
+    let qbt;
+    let twitterHref;
+
+    if (this.state.loading) {
+      qbt = (
         <div className="quote-box-top">
-          <p className="quote-text">
-            Code is expensive to change, but design is cheaper to change, and
-            requirements are even cheaper to change.
-          </p>
-          <p className="quote-author">Daniel T. Barry</p>
+          <p className="quote-loading">loading...</p>
         </div>
-        <div className="quote-box-bottom">
-          <img
-            src="icons8-twitter.svg"
-            alt="Share via Twitter"
-            className="quote-twitter"
-          />
-          <button className="quote-button">New Quote</button>
+      );
+    } else {
+      qbt = (
+        <div className="quote-box-top">
+          <p className="quote-text">"{this.state.quote}"</p>
+          <p className="quote-author">{this.state.author}</p>
+        </div>
+      );
+
+      twitterHref =
+        "https://twitter.com/intent/tweet?hashtags=quotes&amp;related=freecodecamp&amp;text=" +
+        this.state.quote +
+        " - " +
+        this.state.author;
+    }
+
+    return (
+      <div style={styles} className="quote-container">
+        <div className="quote-box">
+          {qbt}
+          <div className="quote-box-bottom">
+            <a
+              class="button"
+              id="tweet-quote"
+              title="Tweet this quote!"
+              target="_blank"
+              href={twitterHref}
+            >
+              <img
+                src="icons8-twitter.svg"
+                alt="Share via Twitter"
+                className="quote-twitter"
+              />
+            </a>
+            <button className="quote-button" onClick={this.getNewQuote}>
+              New Quote
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
