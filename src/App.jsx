@@ -11,9 +11,6 @@ export default function App() {
     author: '',
   });
 
-  const [imageError, setImageError] = useState();
-  const [quoteError, setQuoteError] = useState();
-
   const handleGetNewQuote = async () => {
     try {
       setQuote({ ...quote, loading: true });
@@ -23,7 +20,7 @@ export default function App() {
         setQuote({ loading: false, quote: data.content, author: data.author });
       }, 1000);
     } catch (error) {
-      setQuoteError(error);
+      console.error(error);
     }
   };
 
@@ -38,7 +35,7 @@ export default function App() {
           return { ...image, loading: false, imageUrl: resp.url };
         });
       } catch (error) {
-        setImageError(error);
+        console.error(error);
       }
     };
 
@@ -60,18 +57,13 @@ export default function App() {
           });
         }, 1000);
       } catch (error) {
-        setQuoteError(error);
+        console.error(error);
       }
     };
 
     getImage();
     getQuote();
   }, []);
-
-  if (imageError || quoteError) {
-    console.log(imageError);
-    console.log(quoteError);
-  }
 
   let style;
   if (image.imageUrl) {
