@@ -6,6 +6,7 @@
 
 body {
   margin: 0;
+  background-color: #f6f6f6;
 }
 
 img {
@@ -23,9 +24,9 @@ img {
 
 .quote-box {
   width: 100%;
-  padding: 0.25em 1.25em 1.25em 1.25em;
+  padding: 0.25em 1.5em 1.25em 1.5em;
   background: #000000;
-  opacity: 0.9;
+  opacity: 0.7;
   color: #ffffff;
 }
 
@@ -75,7 +76,7 @@ img {
 @media (min-width: 700px) {
   .quote-box {
     max-width: 600px;
-    border-radius: 25px;
+    border-radius: 20px;
   }
 
   .quote-text {

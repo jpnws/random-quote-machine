@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 
 import QuoteBox from './QuoteBox';
 
-import './App.css';
-
 export default function App() {
   const [image, setImage] = useState({ loading: false, imageUrl: '' });
 
@@ -100,9 +98,9 @@ export default function App() {
             target="_blank"
             rel="noreferrer"
             href={
-              quote.loading
+              !quote.loading
                 ? `https://twitter.com/intent/tweet?hashtags=quotes&text=${encodeURIComponent(
-                    `${quote.quote}-${quote.author}`
+                    `${quote.quote}\n-${quote.author}`
                   )}`
                 : ''
             }
