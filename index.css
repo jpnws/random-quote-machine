@@ -18,6 +18,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-size: cover;
 }
 
 .quote-box {
@@ -29,7 +30,8 @@ img {
 }
 
 .quote-box-top {
-  font-family: "Special Elite", cursive;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 }
 
 .quote-loading {
@@ -48,10 +50,11 @@ img {
 }
 
 .quote-button {
-  font-family: "Lobster", cursive;
+  font-family: 'Lobster', cursive;
   border: none;
   background: none;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .quote-twitter {
