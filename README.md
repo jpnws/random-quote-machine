@@ -2,7 +2,8 @@
 
 ## Overview
 
-The Random Quote Machine is a React-based web application designed to display a random quote with a dynamically changing background image. It showcases the use of modern web technologies including React, HTML, CSS, and JavaScript, and demonstrates proficiency in both frontend development and API integration.
+The Random Quote Machine is a React-based web application designed to display a
+random quote with a dynamically changing background image.
 
 ## Features
 
