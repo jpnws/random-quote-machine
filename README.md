@@ -24,6 +24,25 @@ random quote with a dynamically changing background image.
 ## Setup and Installation
 
 1. Clone the repository to your local machine.
+
+```bash
+git clone https://github.com/jpnws/random-quote-machine.git
+```
+
 2. Navigate to the project directory.
+
+```bash
+cd random-quote-machine
+```
+
 3. Run `npm install` to install dependencies.
+
+```bash
+npm install
+```
+
 4. Use `npm run dev` to launch the application in your browser.
+
+```bash
+npm run dev
+```
